@@ -1,0 +1,6 @@
+{
+  "name": "IIITK Sarthi",
+  "description": "The digital campus ecosystem for Indian Institute of Information Technology, Kalyani.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1066 @@
+# IIITK SARTHI — COMPLETE WEBSITE-TO-NATIVE-ANDROID PARITY IMPLEMENTATION
+
+## Mission
+
+I have an existing product called **IIITK Sarthi**:
+
+- Existing website: https://iiitk-sarthi.vercel.app/
+- Existing native Android application: the current Android Studio project open in this workspace.
+- Product identity: IIITK Sarthi — the unified digital campus platform for Indian Institute of Information Technology Kalyani.
+
+I do NOT want a reduced version, a simplified companion app, a collection of selected features, or a newly imagined redesign.
+
+**I want the complete existing website experience faithfully represented in the native Android application.**
+
+The website and Android app must feel like two official clients of the same unified product.
+
+The website remains the reference for its existing pages, terminology, content, branding, information architecture, and feature scope. The Android app should preserve those elements while adapting their presentation and interactions to native Android.
+
+Your responsibility is to inspect the current website, inspect the current Android project, identify every parity gap, and implement the missing functionality without destroying or unnecessarily rewriting what already works.
+
+---
+
+# PART 1 — NON-NEGOTIABLE REQUIREMENTS
+
+1. Every existing website page and major section must have a corresponding accessible destination in the Android app.
+2. Every existing website feature must be represented in the Android app.
+3. Every website navigation item, submenu, tab, filter, search interface, detail view, modal, form and relevant interaction must be accounted for.
+4. Do not silently omit a feature because it is complicated.
+5. Do not replace a complete website module with a generic placeholder card.
+6. Do not reduce detailed pages to superficial summaries.
+7. Do not remove existing Android functionality to make room for new features.
+8. Preserve the Sarthi branding, terminology, content hierarchy and visual identity.
+9. Use native Kotlin and Jetpack Compose. Do not turn the Android app into a WebView wrapper.
+10. Do not invent institutional data, API integrations, authentication, live tracking, attendance verification or backend capabilities.
+11. Do not claim that an operation is live when it is only simulated or locally stored.
+12. Keep website and app navigation, terminology and content consistent.
+
+**Definition of completion:** Every discovered website destination and feature has an Android counterpart, and every counterpart has been checked for actual navigation, appropriate UI states and functional behaviour.
+
+---
+
+# PART 2 — FIRST AUDIT THE TWO EXISTING PRODUCTS
+
+Before modifying code:
+
+### A. Inspect the complete website
+
+Use the deployed website and any available source/project files.
+
+Inspect:
+- Every route and page.
+- All navigation menus and nested destinations.
+- Every major section and subsection.
+- Search, filters, tabs and dropdowns.
+- Interactive maps and diagrams.
+- Modals, dialogs and detail views.
+- Forms, actions and buttons.
+- Content cards and their destinations.
+- Profile and settings interfaces.
+- External links and institutional portals.
+- Desktop and mobile layouts.
+
+Use the website content supplied in this conversation as an additional reference.
+
+Do not assume that the pasted content is the complete website. Discover anything missing by inspecting the actual site.
+
+### B. Inspect the current Android project
+
+Read the existing source code before editing.
+
+Inspect:
+- All Kotlin files.
+- All Compose screens and reusable components.
+- Navigation graph and routes.
+- ViewModels and state management.
+- Repositories and data sources.
+- Data models.
+- Gradle dependencies.
+- AndroidManifest.xml.
+- Permissions.
+- Local persistence.
+- Authentication configuration.
+- Maps implementation.
+- Tests.
+- Existing loading, empty and error states.
+
+### C. Produce a parity matrix
+
+Create a complete comparison with:
+
+| Website destination/feature | Existing Android equivalent | Status | Required work |
+|---|---|---|---|
+| Website page/module | Android screen/route | Complete / Partial / Missing | Specific implementation |
+
+Do not start by rebuilding the app. Identify existing functionality and preserve it.
+
+---
+
+# PART 3 — COMPLETE WEBSITE MODULES THAT MUST BE REPRESENTED
+
+The following is the known scope from the existing website. Verify each module and its subfeatures against the actual deployed website.
+
+## 1. Campus OS / Home Dashboard
+
+Reproduce the complete dashboard experience, including:
+
+- Digital ID Pass access.
+- Emergency Red Line.
+- Bluetooth Check In.
+- Academic year and semester context.
+- Personalized greeting.
+- Student identity and academic details.
+- Next-class information.
+- Attendance summary and safety status.
+- CGPA and academic performance summary.
+- Upcoming class card.
+- Attendance action.
+- Campus Highlights and Live Stories.
+- Today's Timeline.
+- Class schedule and status.
+- Attendance margin and safe-to-skip information.
+- Official Notices.
+- Academic and Administrative Board notices.
+- Downloadable notice attachments.
+- Flagship Event highlights.
+- Hostel IT notices.
+- Mess portal and meal information.
+- Weekly mess menu access.
+- Sarthi AI Co-Pilot.
+- Smart attendance predictor summary.
+- Campus Toolbox and Portals.
+- Institutional Ecosystem and Governance Tree.
+
+The home screen should remain a comprehensive personalized dashboard, not a generic greeting and a few quick-action buttons.
+
+## 2. Digital ID Pass
+
+Preserve:
+- Institutional identity and header.
+- Student photograph.
+- Full name.
+- Department.
+- Student ID / enrollment number.
+- Batch.
+- Date of birth.
+- Blood group.
+- Emergency contact.
+- Institutional email.
+- Profile editing.
+- Full-screen digital card.
+- Card presentation and interaction.
+- Guest/visitor pass state when not authenticated.
+
+The ID must clearly distinguish a locally created profile from an institutionally verified identity.
+
+Do not claim that the digital card is an official credential unless an authorized institutional verification system exists.
+
+## 3. Emergency Red Line and Emergency Response
+
+Preserve:
+- Emergency response center.
+- SOS mode.
+- Full-screen SOS interface.
+- Medical emergency contact.
+- General office contact.
+- National Anti-Ragging Helpline.
+- Rapid Help Nodes.
+- First Aid Center.
+- Security Room.
+- Crisis Cell.
+- Sarthi Care Network.
+- Anonymous peer support or professional counselling entry points where actually supported.
+
+Implement safe native interactions, confirmation steps and permission handling.
+
+Do not claim GPS broadcasting, emergency dispatch or security notification has occurred unless a real backend integration confirms it.
+
+## 4. Attendance Predictor and Deficit Engine
+
+This is a major academic tool. It must not be reduced to an attendance percentage card.
+
+Preserve:
+- Overall aggregate.
+- Configurable target attendance.
+- Overall safe buffer.
+- Subject-wise breakdown.
+- Present and absent counts.
+- Individual subject percentages.
+- Deficit calculations.
+- Consecutive lectures required to reach the target.
+- Safe-to-miss calculation.
+- Interactive subject selection.
+- Interactive attendance sandbox.
+- Projected attendance.
+- Upcoming lectures.
+- AI recommendation.
+- Comprehensive attendance analytics.
+
+Implement deterministic attendance calculations in Kotlin/domain logic, not through an AI model.
+
+Validate all calculations, boundary conditions and division-by-zero cases.
+
+Clearly label sample attendance data as demo data until an authorized academic data integration exists.
+
+## 5. Campus Highlights and Stories
+
+Preserve:
+- Active updates.
+- Institutional/admin stories.
+- Club stories.
+- Community updates.
+- Story viewing.
+- Story navigation.
+- Appropriate creator and source labels.
+- Submission entry point, if available.
+
+Do not fabricate live posts or claim that an uploaded story has been published to the institution.
+
+## 6. Campus Toolbox and Institutional Portals
+
+Preserve the complete portal directory, including the website's available entries:
+
+- Weekly Mess Menu.
+- Fee Payment / SBI Collect.
+- Library OPAC and E-Books.
+- City Shuttle and Transit.
+- Academic repositories.
+- Relevant official portals and external resources.
+
+Every entry must have its own meaningful detail or launch action.
+
+For external portals, open the actual official destination where verified. Do not build fake payment, receipt or ERP functionality.
+
+## 7. Institutional Ecosystem and Governance Atlas
+
+This is a substantial module and must not be omitted.
+
+Preserve:
+- IIIT Kalyani Institutional Atlas.
+- Eight apex pillars.
+- Institutional hierarchy tree.
+- Search.
+- Tree Hierarchy view.
+- Interactive Map view.
+- Domain cards.
+- Detailed node inspection.
+- Charter, leadership and functions.
+- Cross-links between institutional entities.
+
+The eight pillars represented in the supplied website content are:
+
+1. Student Life.
+2. Events.
+3. Institutional Bodies.
+4. Research & Innovation.
+5. Career.
+6. Campus.
+7. Student Services.
+8. Achievements.
+
+Preserve the nested entities and their descriptions.
+
+### Student Life
+- Student Affairs.
+- Clubs and Communities.
+- Gymkhana.
+- Student Senate and Executive Council.
+- Student Welfare and Grievance Wing.
+- Finance and Festival Secretariat.
+
+### Events
+- Renesa and Fests.
+- StatusCode and Hackathons.
+- Competitions and Robotics.
+- Workshops.
+- Anukriti and Cultural.
+- Sports.
+- Academic.
+- Ekatra and Institutional.
+
+### Institutional Bodies
+- Board of Governors.
+- Senate.
+- Finance Committee.
+- Administrative Body.
+- Internal Complaints Committee.
+- Anti-Ragging Committee.
+- Anti-Ragging Squad.
+- Grievance Redressal Cell.
+
+### Research & Innovation
+- IIC.
+- SRIC.
+- IPR.
+- NISP.
+- CEP.
+- Sponsored Projects.
+- Publications.
+
+### Career
+- Training and Placement Cell.
+- Internships.
+- Recruiters.
+- Alumni Network.
+- Career Opportunities.
+
+### Campus
+- Hostels.
+- Mess.
+- Library.
+- Sports Grounds.
+- Labs.
+- Facilities.
+- Map.
+- Transport and Connectivity.
+
+### Student Services
+- Notices.
+- Forms.
+- Academic Calendar.
+- Regulations and Ordinances.
+- Portals.
+- Emergency Services.
+- Directory.
+
+### Achievements
+- Students.
+- Faculty.
+- Research.
+- Sports.
+- Competitions.
+
+Preserve the actual website's labels and descriptions. Do not invent missing institutional charters or office holders.
+
+## 8. Events and Renesa Ecosystem
+
+The events module must be comprehensive.
+
+Preserve:
+- Events landing page.
+- Renesa flagship festival page.
+- Renesa event verticals.
+- Festival itinerary.
+- Competitions.
+- Competition rulebooks.
+- Registration/detail actions.
+- Event calendar.
+- Event directory.
+- Search.
+- Sorting.
+- Category filters.
+- Status filters.
+- Online/offline/hybrid filters.
+- Event detail screens.
+- External event websites.
+
+Known event categories:
+- Technology.
+- Culture.
+- Sports.
+- Academic.
+- Innovation.
+- Institutional.
+- Community.
+
+Known events in the supplied website content:
+- Renesa.
+- StatusCode.
+- Anukriti.
+- Ekatra.
+- Enigma.
+- Spring Serenade & Talent Hunt.
+- Annual Alumni Meet & Industry Bridge.
+- Google Solution Challenge Bootcamp.
+- IIITK Premier League.
+- National Science & Research Colloquium.
+- IIC Deep-Tech Startup Ideathon.
+
+Preserve the detailed Renesa page, including:
+- Hero section.
+- Tech, Culture and The Nights.
+- Festival experience.
+- Technology competitions.
+- Cultural competitions.
+- Festival benchmarks.
+- Three-day itinerary.
+- Flagship competitions.
+- Registration and rulebook actions.
+
+Do not reduce Renesa to one event card.
+
+## 9. Student Life and Club Directory
+
+Preserve:
+- Club directory.
+- Club categories.
+- Gymkhana and independent/community groupings.
+- Club details.
+- Club email.
+- Club tags.
+- Membership information shown on the website.
+- Join/leave state where supported.
+- Club governance policy.
+- Propose Club action.
+- Club event connections.
+
+The supplied website identifies these clubs and communities:
+
+1. Spotlight.
+2. Sports Club.
+3. SMC.
+4. PiXeL.
+5. FreeScape.
+6. S.E.A.L. Robotics.
+7. Udaan.
+8. Groovz.
+9. IEEE Student Branch, IIIT Kalyani.
+10. GDG on Campus IIIT Kalyani.
+11. E-Sports.
+
+Retain the website's actual descriptions and categories.
+
+Do not invent official club logos. Use the website's real assets where available.
+
+## 10. Peer Study Matchmaker
+
+Preserve:
+- Active peer availability.
+- Subject selection.
+- Subject toggling.
+- Custom study topics.
+- Study circle creation.
+- Match results.
+- Shared-subject information.
+- Study location.
+- Study focus.
+- Invite to study.
+- Active study groups.
+- Group search.
+- Subject filtering.
+- Group detail.
+- Join/leave actions.
+- Group capacity and host information.
+
+Do not claim that another student has been contacted or invited unless an actual messaging/backend service confirms the action.
+
+Use clearly labelled demo profiles if real student data is unavailable.
+
+## 11. Student Collaboration and Community
+
+Preserve:
+- Flagship events and hackathons.
+- RSVP interactions.
+- Gymkhana Collaboration.
+- Student Discourse Room.
+- Inter-club proposals.
+- Hackathon track ideas.
+- Collaboration with club representatives.
+
+Implement local demo state only where real server functionality is unavailable.
+
+## 12. Academic Timetable
+
+Preserve:
+- Personalized weekly timetable.
+- Weekday grouping.
+- Lecture and lab sessions.
+- Start and end times.
+- Venue.
+- Course.
+- Faculty.
+- Session status.
+- Calendar export.
+- Calendar synchronization entry point.
+
+Calendar export should generate a real supported calendar action/file, not just display a decorative button.
+
+## 13. Academic Analytics
+
+Preserve:
+- Overall CGPA.
+- Target CGPA.
+- Performance trends.
+- Semester-wise performance.
+- Eligibility checks.
+- Recruiter eligibility criteria where the source provides them.
+- Recruiter directory.
+- Grade Predictor.
+- SGPA simulation.
+- Academic performance heatmap.
+- Study distribution.
+- Assignment velocity.
+- Weekly deep work.
+- Focus rating.
+- Submission performance.
+- Peak productivity.
+- Weekly time-block intensity matrix.
+- Subject deep-work breakdown.
+
+Distinguish actual academic records from locally entered or simulated data.
+
+Do not present fabricated biometric or IDE telemetry as real measurements.
+
+## 14. Resource Hub
+
+Preserve:
+- Notes.
+- Previous-year question papers.
+- Slides.
+- Books and other resource categories.
+- Semester filters.
+- Subject associations.
+- Download actions.
+- Resource details.
+- Source and file information.
+
+Use actual files or verified resource links. Never show a working-looking download action that downloads nothing.
+
+## 15. Student Marketplace
+
+Preserve:
+- Marketplace landing page.
+- Item categories.
+- Item listings.
+- Price.
+- Condition.
+- Seller.
+- Product details.
+- Search/filtering.
+- List Asset action.
+- Listing submission flow.
+- Campus Clearance section.
+- Browse Cycles action.
+- Contact or communication actions, where supported.
+
+Do not pretend a listing has been published or a seller has been contacted without a backend.
+
+## 16. Academic Productivity
+
+Preserve:
+- Assignment tracking.
+- Exam tracking.
+- Deadlines.
+- Urgent actions.
+- Task creation.
+- Task editing.
+- Completion state.
+- Backlog.
+- Focus rate.
+- Burnout Shield.
+- AI Optimizer.
+- Study priority recommendations.
+- Relevant task and schedule context.
+
+Local persistence is acceptable for personal tasks, provided the UI communicates that the data is stored locally.
+
+## 17. Opportunities Hub
+
+Preserve:
+- Internship opportunities.
+- Hackathons.
+- Scholarships.
+- Career opportunities.
+- Skill Matrix Analyzer.
+- Match scores.
+- Deadline information.
+- Skills and eligibility.
+- Curated opportunities.
+- Sarthi AI Coach.
+- Career Roadmap.
+
+Do not fabricate current open opportunities or application deadlines. Use verified source links and timestamps, or explicitly labelled demo content.
+
+## 18. Institutional Directory and Messaging
+
+This is another major module.
+
+Preserve all available directory sections:
+
+- Faculty and Researchers.
+- Administration and Offices.
+- Statutory Governance.
+- Research Discovery Graph.
+- Academic Messages.
+
+Preserve:
+- Leadership spotlight.
+- Director profile.
+- Institutional leadership information.
+- Strategic institutional pillars.
+- Director's vision.
+- Official inquiries.
+- Faculty search.
+- Department filter.
+- Designation filter.
+- Research domain filter.
+- Quick research topics.
+- Faculty cards.
+- Faculty profiles.
+- Email actions.
+- Message actions.
+- Office locations and contacts where verified.
+
+Preserve the website's faculty information without inventing people or credentials.
+
+Also preserve the administrative directory:
+- Directorate.
+- Registry.
+- Finance and Accounts.
+- Academics and Examination.
+- Office responsibilities.
+- Contact information.
+- Office hours.
+- Email actions.
+- Message Office actions.
+
+Preserve statutory bodies and governance details, including the Board of Governors and the information presented about its composition and responsibilities.
+
+## 19. Research Discovery
+
+Preserve:
+- Research domains.
+- Research verticals.
+- Principal investigators.
+- Research topics.
+- Subtopics.
+- Associated research facilities.
+- Student research opportunities.
+- Open projects.
+- Project descriptions.
+- Faculty mentors.
+- Faculty profile links.
+
+The seven research-domain groups in the supplied website content must be represented.
+
+Allow navigation between:
+- Research domain.
+- Topic.
+- Research facility.
+- Faculty investigator.
+- Student research project.
+
+Do not invent active projects or research openings beyond the actual website content.
+
+## 20. Authenticated Academic Messaging
+
+Preserve:
+- Academic inbox.
+- Unread messages.
+- Starred messages.
+- Archived messages.
+- Compose Message.
+- Conversation list.
+- Conversation details.
+- Sender and recipient identity.
+- Message timestamps.
+- Attachments.
+- Read status.
+- Conversation ID.
+- Retention-policy information.
+- Faculty replies.
+
+Do not create fake authenticated messaging.
+
+If there is no authorized institutional messaging backend, implement a clearly labelled local demo interface and keep actual sending disabled or explicitly unavailable.
+
+Do not expose private messages or attachments in logs.
+
+## 21. Interactive Campus Map
+
+Preserve:
+- Blueprint view.
+- Satellite view.
+- Campus building markers.
+- Selected building details.
+- Searchable locations.
+- Get Directions.
+- User location, only with permission.
+- Main Block.
+- Academic Block 1.
+- Academic Block 2.
+- Boys' Hostel 1.
+- Boys' Hostel 2.
+- Girls' Hostel.
+- Staff Quarters.
+- Other facilities and map locations actually shown on the website.
+
+Use native Google Maps SDK/Maps Compose if configured.
+
+Important:
+- Google Maps is not an indoor floor-plan database.
+- Do not invent building floor plans.
+- Use verified coordinates and official assets.
+- If indoor maps are unavailable, provide the available campus map and clearly identify the limitation.
+- Handle API key restrictions, network failures and location permission denial.
+
+## 22. Notifications
+
+Preserve all actual notification categories and relevant actions:
+- Academic notices.
+- Class reminders.
+- Events.
+- Mess updates.
+- Community updates.
+- Important institutional alerts.
+- Read/unread states.
+- Notification preferences.
+
+Do not imply push notifications are working until an actual notification delivery integration exists.
+
+## 23. Profile and Settings
+
+Preserve:
+- Student profile.
+- Edit Profile.
+- Digital ID.
+- Personal information.
+- Medical information.
+- Emergency contact.
+- Institutional email.
+- Institutional records and ERP sync.
+- Central Library integration status.
+- Fee status.
+- ERP grade card.
+- Theme and appearance.
+- Dark mode.
+- Bluetooth presence settings.
+- Email alerts.
+- Push notifications.
+- Local persistence.
+- Reset Demo.
+- Build/version information.
+
+Keep guest and verified student states separate.
+
+Do not present SSO as active merely because the interface says SSO READY.
+
+---
+
+# PART 4 — NAVIGATION ARCHITECTURE
+
+Do not make the application a collection of disconnected screens.
+
+Create a coherent native navigation architecture that exposes the full website scope.
+
+A possible primary bottom navigation:
+
+1. Home.
+2. Academics.
+3. Discover.
+4. Community.
+5. Profile.
+
+However, this must not mean that all other website modules are hidden or removed.
+
+Create a well-designed global navigation/drawer or Discover/Explore hub that exposes all secondary modules.
+
+Examples of accessible destinations:
+
+- Campus OS.
+- Attendance.
+- Timetable.
+- Academic Analytics.
+- Grade Predictor.
+- Productivity.
+- Resource Hub.
+- Events.
+- Renesa.
+- Clubs.
+- Study Circles.
+- Collaboration.
+- Marketplace.
+- Opportunities.
+- Institutional Atlas.
+- Faculty Directory.
+- Administrative Directory.
+- Research Discovery.
+- Academic Inbox.
+- Campus Map.
+- Emergency.
+- Notices.
+- Mess Menu.
+- Portals.
+- Digital ID.
+- Settings.
+
+Requirements:
+- Every destination must be reachable.
+- Global search must navigate to matching results.
+- Deep links should open relevant destinations.
+- Android Back must behave correctly.
+- Nested detail pages must have proper parent navigation.
+- Preserve navigation state where appropriate.
+- Avoid duplicate or dead-end destinations.
+
+---
+
+# PART 5 — VISUAL AND BRAND CONSISTENCY
+
+The app and website should unmistakably belong to the same Sarthi product.
+
+Preserve the established Sarthi visual direction:
+
+- True neutral black dark mode.
+- Base: #000000.
+- Secondary: #050505.
+- Elevated: #0A0A0A.
+- Cards: #0D0D0D.
+- Hover: #141414.
+- Active: #1A1A1A.
+- Primary text: #FFFFFF.
+- Secondary text: #D4D4D4.
+- Muted text: #A3A3A3.
+- Borders: #262626 and #1A1A1A.
+- Sarthi Gold: #F5A623, used sparingly.
+- Rozha One for major headings where appropriate.
+- Noto Sans for body and UI.
+
+Do not introduce generic blue/purple AI-SaaS styling.
+
+Preserve the website's actual visual assets:
+- Institutional logo.
+- Sarthi branding.
+- Club logos.
+- Event artwork.
+- Campus images.
+- Faculty photos.
+- Icons.
+- Illustrations.
+- Other supplied visual assets.
+
+Inspect the website's actual asset paths and use them where accessible.
+
+Do not fabricate replacements when original assets are unavailable.
+
+The native app may adapt page layout, card orientation and navigation to mobile, but it must retain the same brand language, content hierarchy and visual identity.
+
+Maintain:
+- Proper typography scale.
+- Consistent spacing.
+- Native touch feedback.
+- Subtle motion.
+- 48dp minimum touch targets.
+- Edge-to-edge layout.
+- Correct system-bar insets.
+- Accessible contrast.
+- Light mode designed intentionally rather than simply inverted.
+
+---
+
+# PART 6 — ARCHITECTURE AND IMPLEMENTATION
+
+Use:
+- Kotlin.
+- Jetpack Compose.
+- Material 3 where appropriate.
+- Navigation Compose.
+- ViewModels.
+- Coroutines and Flow.
+- Repository pattern.
+- Domain/data/UI separation.
+- Dependency injection if already established in the project.
+
+Organize code into maintainable feature modules or packages.
+
+Each feature should have:
+- Screen.
+- Reusable components.
+- State model.
+- ViewModel where needed.
+- Domain model.
+- Repository interface.
+- Data implementation.
+
+Avoid one enormous composable or one central ViewModel containing the entire app.
+
+Use shared design-system components.
+
+Avoid duplicating models or implementing the same feature twice.
+
+---
+
+# PART 7 — DATA, BACKEND AND INTEGRATION HONESTY
+
+The Android app must distinguish:
+
+1. Official institutional data.
+2. Authorized integrated data.
+3. Sarthi-admin verified content.
+4. Community-submitted content.
+5. Local personal data.
+6. Demo/sample data.
+7. Unavailable future integrations.
+
+Every relevant data module should expose its source and freshness where appropriate.
+
+Build repository interfaces so future Firebase, Supabase or authorized institutional APIs can be connected without rewriting the UI.
+
+Do not assume that an API exists simply because the website has a corresponding interface.
+
+### Authentication
+Use Firebase Authentication and Credential Manager only if correctly configured.
+
+Google authentication does not automatically prove that a person is an IIIT Kalyani student.
+
+Institutional verification must be separate and authorized.
+
+### Bluetooth Check In
+Do not claim attendance has been officially verified through Bluetooth unless a real authorized beacon/backend verification system exists.
+
+### SOS and GPS
+Do not claim a live emergency broadcast has been sent unless the backend confirms it.
+
+### Academic records
+Do not treat local sample CGPA, grades or attendance as official records.
+
+### Messaging
+Do not claim a message has reached faculty without a working authorized messaging backend.
+
+### Notifications
+Do not claim push delivery without an actual configured delivery service.
+
+### Maps
+Do not claim live shuttle tracking or indoor navigation without the necessary data source.
+
+### AI
+AI may assist with campus Q&A, summaries, planning and recommendations. It must not become the source of truth for official institutional data or deterministic academic calculations.
+
+---
+
+# PART 8 — IMPORTANT DATA CONSISTENCY AUDIT
+
+The supplied website content contains multiple numbers and claims that may be sample, dynamic, illustrative or inconsistent.
+
+Examples include:
+- Different attendance percentages.
+- Different CGPA values.
+- Different student ranks.
+- Different faculty and club counts.
+- Demo student profiles.
+- Example messages with invalid timestamps.
+- Simulated location.
+- Biometric/IDE analytics.
+- Claimed live bus and Bluetooth functionality.
+- Event registration states and deadlines.
+
+Do not silently combine contradictory values or turn demo content into official facts.
+
+Preserve the website's actual content where appropriate for visual and feature parity, but classify uncertain information honestly.
+
+Where values conflict:
+1. Record the conflict.
+2. Identify the source and context of each value.
+3. Determine whether the values are separate examples, separate modules or genuine inconsistencies.
+4. Do not arbitrarily select one.
+5. Use a clearly labelled demo state until a verified source of truth exists.
+
+Do not invent missing faculty, clubs, official bodies, dates, contacts, student records or event statistics.
+
+---
+
+# PART 9 — QUALITY ASSURANCE
+
+After implementation, verify:
+
+### Page parity
+- Every website page has an Android destination.
+- Every major section is represented.
+- No major module has been silently omitted.
+
+### Navigation
+- All destinations open.
+- Back navigation works.
+- Search results navigate correctly.
+- Nested details return to the correct parent.
+- No dead-end pages.
+
+### Functionality
+- Buttons perform real actions.
+- Filters actually filter.
+- Search actually searches.
+- Tabs change content.
+- Forms validate inputs.
+- Calculations are correct.
+- Local changes persist where intended.
+- External links open correctly.
+
+### UI states
+- Loading.
+- Loaded.
+- Refreshing.
+- Empty.
+- Offline.
+- Stale.
+- Error.
+- Unauthorized.
+- Unavailable integration.
+
+### Android quality
+- No crashes.
+- No broken imports.
+- No missing dependencies.
+- No compiler warnings introduced unnecessarily.
+- No inaccessible controls.
+- No keyboard or inset overlap.
+- No accidental horizontal overflow.
+- No unhandled permission denial.
+
+### Testing
+Add or update tests for:
+- Navigation.
+- Attendance calculations.
+- Grade/SGPA calculations.
+- Filters.
+- Search.
+- Persistence.
+- ViewModel state transitions.
+- Critical repository behaviour.
+
+Build the complete Android project and fix errors.
+
+---
+
+# PART 10 — REQUIRED FINAL REPORT
+
+When finished, provide:
+
+1. Complete website page inventory.
+2. Complete Android route inventory.
+3. Website-to-Android parity matrix.
+4. Features already present and preserved.
+5. Features newly implemented.
+6. Features still incomplete.
+7. Features blocked by missing backend/API/official data.
+8. Assets successfully reused.
+9. Authentication and Maps integration status.
+10. Data-source and demo-data limitations.
+11. Tests performed and their results.
+12. Final build result.
+13. Any known issues.
+
+Use these explicit statuses:
+
+- COMPLETE — implemented and verified.
+- PARTIAL — represented but not fully functional.
+- DEMO — works with local/sample data.
+- BLOCKED — requires external integration or authorization.
+- MISSING — not implemented.
+
+Do not mark a feature COMPLETE merely because a screen exists.
+
+Do not claim full parity until every discovered page and feature has been checked.
+
+---
+
+# FINAL INSTRUCTION
+
+**Do not simplify IIITK Sarthi. Do not turn it into a generic student dashboard. Do not discard the website's breadth.**
+
+I want the entire IIITK Sarthi website experience available as a cohesive native Android application.
+
+The website and app should feel like one product, with shared branding, terminology, information architecture, data concepts and functionality.
+
+First audit. Then map. Then implement. Then test.
+
+Preserve everything that already works, implement every missing website feature that can be implemented honestly, and clearly identify integrations that require real institutional authorization or backend support.
